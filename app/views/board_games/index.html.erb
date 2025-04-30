@@ -1,17 +1,24 @@
 <h1>Board Game Library</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Category</th>
-    <th>Players</th>
-    <th>Publisher</th>
-  </tr>
-  <% @board_games.each do |game| %>
-    <tr>
-      <td><%= link_to game.title, board_game_path(game) %></td>
-      <td><%= game.category %></td>
-      <td><%= "#{game.min_players} - #{game.max_players}" %></td>
-      <td><%= game.publisher %></td>
-    </tr>
-  <% end %>
-</table>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Players</th>
+        <th>Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @board_games.each do |game| %>
+        <tr>
+          <td><%= link_to game.title, board_game_path(game) %></td>
+          <td><%= game.category %></td>
+          <td><%= "#{game.min_players} - #{game.max_players}" %></td>
+          <td><%= game.publisher %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,6 +1,26 @@
 <h1><%= @board_game.title %></h1>
-<p><strong>Category:</strong> <%= @board_game.category %></p>
-<p><strong>Players:</strong> <%= @board_game.min_players %> to <%= @board_game.max_players %></p>
-<p><strong>Publisher:</strong> <%= @board_game.publisher %></p>
-<p><strong>Description:</strong> <%= @board_game.description %></p>
-<%= link_to 'Back to List', board_games_path %>
+
+<div class="table-container">
+  <table>
+    <tr>
+      <th>Category</th>
+      <td><%= @board_game.category %></td>
+    </tr>
+    <tr>
+      <th>Players</th>
+      <td><%= @board_game.min_players %> - <%= @board_game.max_players %></td>
+    </tr>
+    <tr>
+      <th>Publisher</th>
+      <td><%= @board_game.publisher %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @board_game.description %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="back-link">
+  <%= link_to 'Back to Game List', board_games_path %>
+</div>
