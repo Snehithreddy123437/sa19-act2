@@ -78,21 +78,19 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: sa19_act2_development
+
+test:
+  <<: *default
+  database: sa19_act2_test
+
 production:
-  primary: &primary_production
-    <<: *default
-    database: board_game_library_production
-    username: board_game_library
-    password: <%= ENV["BOARD_GAME_LIBRARY_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: board_game_library_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: board_game_library_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: board_game_library_production_cable
-    migrations_paths: db/cable_migrate
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
