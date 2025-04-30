@@ -7,7 +7,7 @@ services:
     name: sa19-act2-app
     runtime: ruby
     plan: free
-    region: ohio
+    region: oregon
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rails server -p $PORT"
     envVars:
